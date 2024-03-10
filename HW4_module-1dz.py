@@ -29,7 +29,7 @@ def total_salary(path):
         return None, None
 
 # way to file
-total, average = total_salary('зарплата.txt')
+total, average = total_salary('Зарплата.txt')
 
 # results
 if total is not None and average is not None:
