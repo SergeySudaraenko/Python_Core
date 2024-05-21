@@ -4,9 +4,11 @@ def parse_input(user_input):
     args = parts[1:]
     return command, args
 
+
 def add_contact(username, phone, contacts):
     contacts[username] = phone
     return f"Contact {username} added."
+
 
 def change_contact(username, new_phone, contacts):
     if username in contacts:
@@ -15,22 +17,27 @@ def change_contact(username, new_phone, contacts):
     else:
         return f"Contact {username} not found."
 
+
 def get_phone(username, contacts):
     if username in contacts:
         return f"The phone number for {username} is {contacts[username]}."
     else:
         return f"Contact {username} not found."
 
+
 def show_all_contacts(contacts):
     if contacts:
-        return "\n".join([f"{username}: {phone}" for username, phone in contacts.items()])
+        return "\n".join(
+            [f"{username}: {phone}" for username, phone in contacts.items()]
+        )
     else:
         return "No contacts available."
+
 
 def main():
     contacts = {}
     print("Welcome to the assistant bot!")
-    
+
     while True:
         user_input = input("Enter a command: ")
         command, args = parse_input(user_input)
@@ -60,6 +67,6 @@ def main():
         else:
             print("Invalid command.")
 
+
 if __name__ == "__main__":
     main()
-

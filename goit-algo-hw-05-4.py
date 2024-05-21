@@ -11,11 +11,13 @@ def input_error(func):
 
     return inner
 
+
 @input_error
 def add_contact(args, contacts):
     name, phone = args
     contacts[name] = phone
     return "Contact added."
+
 
 @input_error
 def change_contact(args, contacts):
@@ -26,6 +28,7 @@ def change_contact(args, contacts):
     else:
         raise KeyError(name)
 
+
 @input_error
 def get_phone(args, contacts):
     name = args[0]
@@ -34,6 +37,7 @@ def get_phone(args, contacts):
     else:
         raise KeyError(name)
 
+
 @input_error
 def show_all_contacts(args, contacts):
     if contacts:
@@ -41,11 +45,13 @@ def show_all_contacts(args, contacts):
     else:
         return "No contacts available."
 
+
 def parse_input(user_input):
     parts = user_input.split()
     command = parts[0].lower()
     args = parts[1:]
     return command, args
+
 
 def main():
     contacts = {}
@@ -70,6 +76,7 @@ def main():
             print(show_all_contacts(args, contacts))
         else:
             print("Invalid command.")
+
 
 if __name__ == "__main__":
     main()
